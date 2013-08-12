@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Omri Kalugny - Music Teacher</title>
+    
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+   <!-- midi.js package -->
+ <script src="./js/MIDI/AudioDetect.js" type="text/javascript"></script>
+ <script src="./js/MIDI/LoadPlugin.js" type="text/javascript"></script>
+ <script src="./js/MIDI/Plugin.js" type="text/javascript"></script>
+ <script src="./js/MIDI/Player.js" type="text/javascript"></script>
+ <script src="./js/Widgets/Loader.js" type="text/javascript"></script>
+ <script src="./js/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+ <script src="./js/Window/DOMLoader.script.js" type="text/javascript"></script>
+ <script src="./js/Window/DOMLoader.script.js" type="text/javascript"></script>
+ <!-- jasmid package -->
+ <script src="./inc/jasmid/stream.js"></script>
+ <script src="./inc/jasmid/midifile.js"></script>
+ <script src="./inc/jasmid/replayer.js"></script>
+ <!-- extras -->
+ <script src="./inc/WebMIDIAPI.js" type="text/javascript"></script>
+ <script src="./inc/Base64.js" type="text/javascript"></script>
+ <script src="./inc/base64binary.js" type="text/javascript"></script>
+  
+ <script src="./js/Window/DOMLoader.script.js" type="text/javascript"></script>
+ <script src="./js/jquery.min.js" type="text/javascript"></script>
+
+ 
+</head>
+<body>
+	<!--[if IE]>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <style>
+   /* 
+    CSS rules to use for styling the overlay:
+      .chromeFrameOverlayContent
+      .chromeFrameOverlayContent iframe
+      .chromeFrameOverlayCloseBar
+      .chromeFrameOverlayUnderlay
+   */
+  </style> 
+  <script>
+   // You may want to place these lines inside an onload handler
+   CFInstall.check({
+     mode: "overlay",
+     destination: "http://www.waikiki.com"
+   });
+  </script>
+  <![endif]-->
+<div id="wrapper">
+	<div id="piano">
+			<div id="pianoBody">
+				<div id="littleRedLine"></div>
+				<div id="o00" class="octave">
+					<div id="A0" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B0" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Bb0" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o0" class="octave">
+					<div id="C1" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D1" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E1" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F1" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G1" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A1" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B1" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db1" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb1" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb1" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab1" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb1" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o1" class="octave">
+					<div id="C2" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D2" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E2" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F2" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G2" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A2" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B2" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db2" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb2" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb2" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab2" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb2" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o2" class="octave">
+					<div id="C3" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D3" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E3" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F3" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G3" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A3" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B3" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db3" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Db3" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb3" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab3" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb3" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o3" class="octave">
+					<a id="middleC">
+					<div id="C4" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D4" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E4" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F4" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G4" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A4" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B4" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db4" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb4" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb4" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab4" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb4" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</a></div><a id="middleC">
+				<div id="o4" class="octave">
+					<div id="C5" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D5" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E5" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F5" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G5" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A5" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B5" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db5" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb5" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb5" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab5" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb5" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o5" class="octave">
+					<div id="C6" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D6" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E6" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F6" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G6" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A6" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B6" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db6" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb6" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb6" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab6" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb6" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o6" class="octave">
+					<div id="C7" class="key white"><div class="keyname" style="display: none;">C</div></div>
+					<div id="D7" class="key white"><div class="keyname" style="display: none;">D</div></div>
+					<div id="E7" class="key white"><div class="keyname" style="display: none;">E</div></div>
+					<div id="F7" class="key white"><div class="keyname" style="display: none;">F</div></div>
+					<div id="G7" class="key white"><div class="keyname" style="display: none;">G</div></div>
+					<div id="A7" class="key white"><div class="keyname" style="display: none;">A</div></div>
+					<div id="B7" class="key white"><div class="keyname" style="display: none;">B</div></div>
+					<div class="flats">
+						<div id="Db7" class="key black"><div class="keyname" style="display: none;">C# == Db</div></div>
+						<div id="Eb7" class="key black"><div class="keyname" style="display: none;">D# == Eb</div></div>
+						<div id="Gb7" class="key black"><div class="keyname" style="display: none;">F# == Gb</div></div>
+						<div id="Ab7" class="key black"><div class="keyname" style="display: none;">G# == Ab</div></div>
+						<div id="Bb7" class="key black"><div class="keyname" style="display: none;">A# == Bb</div></div>
+					</div>
+				</div>
+				<div id="o7" class="octave">
+					<div id="C8" class="key white"><div class="keyname" style="display: none;">C</div></div>
+				</div>
+			</a></div>
+		</a>
+	</div>
+
+	<div class="piano_body">
+		<div class="piano_body_top"></div>
+		<div class="piano_body_middle"><div class="piano_body_insertion"></div></div>
+		<div class="piano_body_bottom">
+			<p Id="wait">...טוען מוסיקה</p>
+			<img id="playpauseimg" src="/images/pause.png" onclick="pausePlayStop()"/>
+			<select id="midiselect" onchange="changeMusic()">
+				<option value="/midis/fantasy.mid" selected>פנטסי אימפרומפטו של שופין</option>
+				<option value="/midis/bwv988dg.mid">וריאציות גולדברג של באך</option>
+				<option value="/midis/rachsym2.mid">הסימפוניה השניה של רחמנינוף</option>
+			</select>
+		</div>
+		<div class="content">
+			<p class="quote">
+				"בין מטרות הלימוד - הרחבת האופקים התרבותיים בהקשרים האומנותיים (מוסיקה, ספרות, אומנות פלסטית) לאורך ציר הזמן תוך שימת דגש על פיתוח קו חשיבה פילוסופי אקטיבי ויצירתי בבסיסו"
+			</p>
+			<h1>עמרי קלוג'ני</h1>
+			<h2>בוגר האקדמיה למוזיקה בירושלים<br/>
+			מעביר שיעורי פסנתר בכל הרמות ולכל הגילים</h2>
+			<p>קריאת תווים | קצב | הרמוניה | פיתוח שמיעה | מוטוריקה פסנתרית<br/><br/>
+			נגינה סגנונית | פרשנות אישית
+			</p>
+			<p>054-9451245 | <a href="mailto:omrikalugny@gmail.com">omrikalugny@gmail.com</a></p>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+if (typeof(console) === "undefined") var console = { log: function() { } };
+
+$.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 50,
+    duration      : 500,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
+}
+
+// Begin loading indication.
+var player;
+
+// Toggle between Pause and Play modes.
+var pausePlayStop = function(stop) {
+	if (stop) {
+		MIDI.Player.stop();
+	} else if (MIDI.Player.playing) {
+		MIDI.Player.pause(true);
+		$("#playpauseimg").attr('src', '/images/play.png');
+	} else {
+		MIDI.Player.resume();
+		$("#playpauseimg").attr('src', '/images/pause.png');
+	}
+};
+
+var changeMusic = function() {
+	player.loadFile($("#midiselect").val(), function() { 
+													player.start();
+													$("#wait").fadeOut();
+													$('#playpauseimg').fadeIn();
+													$('#midiselect').fadeIn()
+													$('#playpauseimg').css('display', 'block');
+													$('#midiselect').css('display', 'block');
+													
+												});
+}
+
+var playNote = function(key){
+	var delay = 0; // play one note every quarter second
+	var note = MIDI.keyToNote[key];
+	var velocity = 127; // how hard the note hits
+	// play the note
+	//MIDI.setVolume(0, 127);
+	MIDI.noteOn(0, note, velocity, delay);
+	MIDI.noteOff(0, note, delay + 0.75);
+}
+
+$(window).load(function() {
+	$('.content').fadeIn();
+	$('body').scrollTo("h1");
+});
+
+$(document).ready(function() {
+
+	$(".key").mousedown(function () {
+	  	var toneId = $(this).attr('id');
+		playNote(toneId);
+	});
+	
+	//$('.content').attr('visiblity', 'visible');
+
+	MIDI.loadPlugin(function () {
+		// this sets up the MIDI.Player and gets things going...
+		player = MIDI.Player;
+		player.timeWarp = 1; // speed the song is played back
+		changeMusic();
+		// control the piano keys colors
+		player.addListener(function(data) {
+			var pianoKey = MIDI.noteToKey[data.note];
+			var klass = (pianoKey[1] == 'b') ?  'black_pressed' : 'white_pressed';
+			if (data.message == 144){
+				$("#" + pianoKey).addClass(klass);
+			}
+			else{
+				$("#" + pianoKey).removeClass(klass);
+			}
+		});
+	});
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+@import url(http://fonts.googleapis.com/css?family=Philosopher&subset=cyrillic,latin);
+
+@font-face
+{
+	font-family: Simple;
+	src: url('SimpleCLM-Medium.ttf');
+}
+
+html, body {
+	height: 100%;
+	font-family: Simple, Philosopher, Tahoma;
+  background-color: #af3642;
+}
+
+body {
+	overflow-x: hidden;
+	width: 100%;
+}
+
+h1 {
+	font-size: 80px;
+	color: white;
+	text-align: right;
+}
+
+h2 {
+	font-size: 40px;
+	color: #DA9869;
+	text-align: left;
+}
+	
+
+a {text-decoration: none; color: #33CCCC; cursor: pointer;}
+a:hover {color: #9C0413;}
+
+nav.left {
+	position: fixed;
+	left: 0px;
+	margin: 0px 0px 0px 20px;
+}
+nav.right {
+	position: fixed;
+	right: 0px;
+	margin: 0px 20px 0px 0px;
+}
+
+#piano {
+    background-color: #272927;
+    color: #000000;
+    text-align: center;
+	width: 117px;
+	height: 1250px;
+	padding: 2px 2px 3px;
+	display: block;
+	float: left;
+}
+
+#pianoBody {
+	width: 100%;
+	position: relative;
+	float: left;
+	display: block;
+}
+
+#littleRedLine {
+    background-color: #9C0413;
+    color: #000000;
+    height: 100%;
+    position: absolute;
+    top: 1px;
+    width: 2px;
+    z-index: 100;
+	display: block;
+	right: 0;
+}
+
+.octave {
+	position: relative;
+	float: left;
+} 
+
+.key {
+	cursor: pointer;
+}
+
+.white {
+	float: left;
+	width: 115px;
+	height: 22px;
+	background-color: #F4F4F4;
+	border: 1px solid #626262;
+	position: relative;
+	-moz-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px; 
+	background-image: -webkit-gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	-webkit-box-shadow: 5px 0 1px 0px #838383 none, 30px 0 20px 5px #EEEEEE inset;
+	
+	background-image: -moz-linear-gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	-moz-box-shadow: 5px 0 1px 0px #838383 inset, 30px 0 20px 5px #EEEEEE inset;
+	
+	background-image: -gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	box-shadow: 5px 0 1px 0px #838383 inset, 30px 0 20px 5px #EEEEEE inset;
+}
+
+div.white:active,
+div.white.pressed,
+.white_pressed {
+	border: 1px solid #343434;
+	background-image: -webkit-gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	-webkit-box-shadow: 2px 0 10px -1px #272927 inset;
+	
+	background-image: -moz-linear-gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	-moz-box-shadow: 2px 0 1px 0px #838383 inset,0 -1px 10px -1px #272927 inset;
+	
+	background-image: -gradient(center left , #FFFFFF 90%, #CCCCCC 100%);
+	box-shadow: 2px 0 10px -1px #272927 inset;
+}
+
+.black {
+	float: right;
+	width: 80px;
+	height: 11px;
+	background-color: #000000;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	position: absolute;
+	right: 1px;
+	z-index: 100;
+	-moz-border-radius: 1px 0 0 1px;
+	border-radius: 1px 0 0 1px; 
+	border-right: 0px;
+	-moz-box-shadow: 4px 0 5px 4px #303030 inset, 7px 0 #F7F7F7 inset;
+	-webkit-box-shadow: 4px 0 5px 4px #303030 inset, 7px 0 #F7F7F7 inset;
+	box-shadow: 4px 0 5px 4px #303030 inset, 7px 0 #F7F7F7 inset;
+}
+
+div.black:active,
+div.black.pressed,
+.black_pressed {
+  border: 1px solid #CECECE;
+  border-right: 1px solid #626262;
+	-moz-box-shadow: 0 0 3px 3px #303030 inset, 0 -2px #F7F7F7 inset;
+	-webkit-box-shadow: 0 0 3px 3px #303030 inset, 0 -2px #F7F7F7 inset;
+	box-shadow: 0 0 3px 3px #303030 inset, 0 -2px #F7F7F7 inset;
+}
+
+div.flats {
+
+}
+
+div.flats :nth-child(1) {
+	margin-top: 16px;
+}
+div.flats :nth-child(2) {
+	margin-top: 39px;
+}
+div.flats :nth-child(3) {
+	margin-top: 89px;
+}
+div.flats :nth-child(4) {
+	margin-top: 113px;
+}
+div.flats :nth-child(5) {
+	margin-top: 137px;
+}
+
+
+
+#pianoStrings {
+	display: none;
+}
+
+#wrapper {
+	margin: auto;
+	width: 1280px;
+}
+
+.content {
+	direction: rtl;
+	width: 80%;
+	position: absolute;
+	top: 0;
+	padding: 30px 150px 10px 100px;
+	display: none;
+}
+
+.content p {
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.content .quote {
+	color: #74CB62;
+	text-align: left;
+	padding-right: 400px;
+	padding-bottom: 100px;
+}
+
+.piano_body{
+	width: 1158px;
+	height: 1255px;
+	float: left;
+	position: relative;
+}
+
+.piano_body_top {
+	background-color: black;
+	width: 100%;
+	height: 70%;	
+	-moz-border-radius: 0 90% 90% 0 / 150%;
+	border-radius: 0 90% 90% 0 / 150%; 
+	box-shadow: 10px 0 0 0 #303030;
+}
+.piano_body_middle {
+	background-color: black;
+	width: 55%;
+	height: 15%;	
+}
+.piano_body_insertion {
+	background-color: #af3642;
+	float: right;
+	width: 34.5%;
+	height: 100%;	
+	-moz-border-radius: 100% 0 0 0;
+	border-radius: 100% 0 0 0; 
+	box-shadow: 10px 0 0 0 #303030 inset;
+}
+.piano_body_bottom {
+	background-color: black;
+	width: 36%;
+	height: 15%;	
+	-moz-border-radius: 0 0 90% 0 / 300%;
+	border-radius: 0 0 90% 0 / 300%; 
+	box-shadow: 10px 0 0 0 #303030;
+}
+
+#playpauseimg {
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	display: none;
+	margin: auto;
+}
+
+#midiselect {
+	direction: rtl;
+	margin: auto;
+	margin-top: 5px;
+	display: none;
+	padding: 4px;
+}
+
+#wait {
+	padding: 10px;
+	color: white;
+	text-align: center;
+	width: 100%;
+	margin-top: 0;
+}
